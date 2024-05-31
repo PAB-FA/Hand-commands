@@ -25,13 +25,19 @@ The project is a **demo** version!
      - [None,None] If it does not receive information (does not identify manually)
      - [[HT,CM,PC,PF,FU],None] When it detects a hand
      - [[HT,CM,PC,PF,FU],[HT,CM,PC,PF,FU]] When it detects two hands
+   
 - The meaning of the entries :
     - HT = Hand Type = Left or Right
     - CM = Command
     - PC = Hand location on page
     - PF = Finger location on the screen
     - FU = The number of fingers is up
-- In this case, we must run the following code to receive the command:
+      
+    Example of receiving data:
+   ```py
+   [['Right', 'clic', (260, 294), [512, 221], [1, 1, 1, 1, 1]], ['Left', 'clic', (568, 269), [521, 177], [1,1, 1, 1, 1]]]
+   ```
+- In this case, we must run the following code to receive the Hand command:
     - ```py
       from PHandReader import PHR
 
@@ -44,3 +50,6 @@ The project is a **demo** version!
               if IN[1][1] != None:
                   print('2',IN[1][1])
       ```
+- Dump the Val.py file!:
+
+  You need the Val file to run the program, it contains the initial values ​​that may need to be changed
