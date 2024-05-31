@@ -30,6 +30,9 @@ V = {
     'RGP84':False,
     'LTIMEVOL':0,
     'RTIMEVOL':0,
+    'LP812' : False,
+    'RP812' : False,
+    'LPR8L8': False,
 }
 
 def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
@@ -55,8 +58,31 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
     fingers = finger.count(1)
     if HT == 'Left':
         LP84 = P84 + (distancefraction(bbox[3],P0) / 7)
+        LP812 = P812 + (distancefraction(bbox[3],P0) / 7)
+        LPR8L8 = 10100
+        if lmlistL != None and lmlistR != None:
+            LPR8L8 = PR8L8 + (distancefraction(bbox[3],P0) / 7)
+        if LPR8L8 < 30 : LPR8L8 = 10010
+        else : LPR8L8 = 10100
+        if LP812 < 25 : LP812 = 10010
+        else: LP812 =10100
         if LP84  < 30: LP84 = 10010
         else : LP84 = 10100
+        if LPR8L8 == 10010 :
+            V['LPR8L8'] = True
+        if LPR8L8 == 10100 and V['LPR8L8'] == True:
+            V['LPR8L8'] = False
+            return 'POWER'
+        if LP812 == 10010:
+            if fingers == 2:
+                V['LP812'] = True
+        if V['LP812'] == True and LP812 == 10100:
+            if fingers < 4:
+                V['LP812'] = False
+                return 'Cut'
+            else :
+                V['LP812'] = False
+                return 'Snipping'
         if LP84 == 10010:
             if fingers == 2 and V['LGP84'] == False:
                 V['LGP84'] = True
@@ -89,8 +115,21 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
                     return 'dot'
     if HT == 'Right':
         RP84 = P84 + (distancefraction(bbox[3],P0) / 7)
+        RP812 = P812 + (distancefraction(bbox[3],P0) / 7)
+        if RP812 < 25 : RP812 = 10010
+        else: RP812 =10100
         if RP84  < 30: RP84 = 10010
         else : RP84 = 10100
+        if RP812 == 10010:
+            if fingers == 2:
+                V['RP812'] = True
+        if V['RP812'] == True and RP812 == 10100:
+            if fingers < 4:
+                V['RP812'] = False
+                return 'Cut'
+            else :
+                V['RP812'] = False
+                return 'Snipping'
         if RP84 == 10010:
             if fingers == 2 and V['RGP84'] == False:
                 V['RGP84'] = True
@@ -110,7 +149,7 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             RP82 = RP82 * 100 / 30
             if RP82 > 100 : RP82 = 100
             if RP82 < 0:RP82 = 0
-            if fingers < 3:
+            if fingers < 5:
                 V['RTIMEVOL'] = 0
                 return 'SETV',int(RP82) - 2
             return 'STRV',int(RP82)
@@ -137,6 +176,8 @@ def Handone(Hands,frame,Mode):
             OUT1.append(hand1["type"])
             OUT1.append(HandCommand(hand1,lmList1,handType1,frame,Hands,center1,bbox1))
             OUT1.append(center1)
+            OUT1.append(lmList1[8][0:2])
+            OUT1.append(HD.fingersUp(hand1))
             return OUT1
 OUT2 = []
 def Handtow(Hands,frame,Mode):
@@ -153,6 +194,8 @@ def Handtow(Hands,frame,Mode):
             OUT2.append(hand2["type"])
             OUT2.append(HandCommand(hand2,lmList2,handType2,frame,Hands,center2,bbox2))
             OUT2.append(center2)
+            OUT2.append(lmList2[8][0:2])
+            OUT2.append(HD.fingersUp(hand2))
             return OUT2
 def PHR(Mode = 'GD'):
     rec, frame = cap.read()
@@ -160,9 +203,8 @@ def PHR(Mode = 'GD'):
     OUT = []
     OUT.append(Handone(Hands,frame,Mode))
     OUT.append(Handtow(Hands,frame,Mode))
-    CV.imshow("Image", frame)
-
-    # Keep the window open and update it for each frame; wait for 1 millisecond between frames
-    CV.waitKey(1)
+    if Mode[2:3] == 'F':
+        CV.imshow("Hand Reader-Pabfa", frame)
+        CV.waitKey(1)
     return OUT
 
