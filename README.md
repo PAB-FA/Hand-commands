@@ -8,20 +8,20 @@ The project is a **demo** version!
     pip install cvzone
     ```
 - Put the PHandReader.py file in your project.
-  - import function PHR:
+- import function PHR:
   - ```py
     from PHandReader import PHR
     ```
-  - Take the value of PHR in an infinite loop
-      - ```py
-        while True :
-          IN = PHR(Mode)
-        ```
+- Take the value of PHR in an infinite loop
+  - ```py
+    while True :
+    IN = PHR(Mode)
+    ```
   - And instead of Mode, put one of the following modes:
       - 'GD' In this case, it only Get (returns) the Data.
       - 'HCN' In this case, it executes hand commands. (without showing it) *Default
       - 'HCF' In this case, it executes hand commands. (with showing it)
- - Our input in HC (HCN OR HCF) mode is as follows:
+- Our input in HC (HCN OR HCF) mode is as follows:
      - [None,None] If it does not receive information (does not identify manually)
      - [[HT,CM,PC,PF,FU],None] When it detects a hand
      - [[HT,CM,PC,PF,FU],[HT,CM,PC,PF,FU]] When it detects two hands
