@@ -55,12 +55,22 @@ The project is a **demo** version!
   You need the Val file to run the program, it contains the initial values ​​that may need to be changed
 ## Command : 
 ### Table of Contents
-1. [Clic](###Clic)
+1. [Clic](#Clic)
 2. [Dot](#Dot)
-3. [Grap](###Grap)
-
+3. [Grap](#Grap)
+4. [Forsake](#Forsake)
+5. [Cut](#Cut)
+6. [Snipping](#Snipping)
+7. [STR VOL & SET VOL](#STRVOL&SETVOL)
+8. [Power](#Power)
 ### Clic
 ### Dot
 ### Grap
+### Forsake
+### Cut
+### Snipping
+### STRVOL&SETVOL
+### Power
+
 
 
