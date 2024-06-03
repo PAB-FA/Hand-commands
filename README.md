@@ -54,15 +54,23 @@ The project is a **demo** version!
 
   You need the Val file to run the program, it contains the initial values ​​that may need to be changed
 ## Command : 
-### Table of Contents
-1. [Clic](#Clic)
-2. [Dot](#Dot)
-3. [Grap](#Grap)
-4. [Forsake](#Forsake)
-5. [Cut](#Cut)
-6. [Snipping](#Snipping)
-7. [STR VOL & SET VOL](#STRVOL&SETVOL)
-8. [Power](#Power)
+  As you have learned, commands can be obtained from this variable :
+  ```py
+    IN = PHR('HCN')
+    if IN[0] != None:
+        if IN[0][1] != None:
+            Command = ('1',IN[0][1])
+  ```
+A movement readable by the program with your hands creates a command and that command is returned. A variety of commands are available below
+  ### Table of Command
+  1. [Clic](#Clic)
+  2. [Dot](#Dot)
+  3. [Grap](#Grap)
+  4. [Forsake](#Forsake)
+  5. [Cut](#Cut)
+  6. [Snipping](#Snipping)
+  7. [STR VOL & SET VOL](#STRVOL&SETVOL)
+  8. [Power](#Power)
 ---
 ### Clic
 ### Dot
