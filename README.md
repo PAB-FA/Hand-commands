@@ -63,6 +63,7 @@ The project is a **demo** version!
 6. [Snipping](#Snipping)
 7. [STR VOL & SET VOL](#STRVOL&SETVOL)
 8. [Power](#Power)
+---
 ### Clic
 ### Dot
 ### Grap
