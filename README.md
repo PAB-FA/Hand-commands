@@ -7,7 +7,7 @@ The project is a **demo** version!
   - ```Terminal
     pip install cvzone
     ```
-- Put the PHandReader.py file in your project.
+- Put the [PHandReader.py](https://github.com/PAB-FA/Hand-commands/blob/main/PHandReader.py) file in your project.
 - import function PHR:
   - ```py
     from PHandReader import PHR
@@ -50,6 +50,8 @@ The project is a **demo** version!
               if IN[1][1] != None:
                   print('2',IN[1][1])
       ```
-- Dump the Val.py file!:
+- Dump the [Val.py](https://github.com/PAB-FA/Hand-commands/blob/main/DVal.py) file!:
 
   You need the Val file to run the program, it contains the initial values ​​that may need to be changed
+# Command : 
+
