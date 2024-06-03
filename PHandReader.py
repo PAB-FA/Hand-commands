@@ -72,7 +72,7 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             V['LPR8L8'] = True
         if LPR8L8 == 10100 and V['LPR8L8'] == True:
             V['LPR8L8'] = False
-            return 'POWER'
+            return 'Power'
         if LP812 == 10010:
             if fingers == 2:
                 V['LP812'] = True
@@ -86,7 +86,7 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
         if LP84 == 10010:
             if fingers == 2 and V['LGP84'] == False:
                 V['LGP84'] = True
-                return 'grab'
+                return 'Grab'
             V['LP84'] = True
             if fingers > 4:
                 V['LTIMEVOL'] += 1
@@ -94,8 +94,8 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             if V['LGP84'] == True:
                 if fingers == 2 :
                     V['LGP84'] = False
-                    return 'forsake'
-        if V['LTIMEVOL'] > 10 :
+                    return 'Forsake'
+        if V['LTIMEVOL'] > 20 :
             V['LP84'] = False
             LP82 = P82 + (distancefraction(bbox[3],P0) / 3) + Handdistanceinvolume
             LP82 = LP82 - 43
@@ -110,9 +110,9 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             if LP84 == 10100 :
                 V['LP84'] = False
                 if fingers == 5:
-                    return 'clic'
+                    return 'Clic'
                 elif fingers == 3:
-                    return 'dot'
+                    return 'Dot'
     if HT == 'Right':
         RP84 = P84 + (distancefraction(bbox[3],P0) / 7)
         RP812 = P812 + (distancefraction(bbox[3],P0) / 7)
@@ -133,7 +133,7 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
         if RP84 == 10010:
             if fingers == 2 and V['RGP84'] == False:
                 V['RGP84'] = True
-                return 'grab'
+                return 'Grab'
             V['RP84'] = True
             if fingers > 4:
                 V['RTIMEVOL'] += 1
@@ -141,8 +141,8 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             if V['RGP84'] == True:
                 if fingers == 2 :
                     V['RGP84'] = False
-                    return 'forsake'
-        if V['RTIMEVOL'] > 10 :
+                    return 'Forsake'
+        if V['RTIMEVOL'] > 20 :
             V['RP84'] = False
             RP82 = P82 + (distancefraction(bbox[3],P0) / 3) + Handdistanceinvolume
             RP82 = RP82 - 43
@@ -157,9 +157,9 @@ def HandCommand(hand,lmlist,HT,frame,Hands,center,bbox):
             if RP84 == 10100 :
                 V['RP84'] = False
                 if fingers == 5:
-                    return 'clic'
+                    return 'Clic'
                 elif fingers == 3:
-                    return 'dot'
+                    return 'Dot'
 OUT1 = []
 def Handone(Hands,frame,Mode):
     if Hands :
