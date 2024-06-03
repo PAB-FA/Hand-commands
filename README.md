@@ -2,7 +2,7 @@
 Control your programs with a few ready recipes with hand gestures!
 This program includes several predefined hand gestures that you can use in your programs and projects. For example, controlling music with hand movements or controlling the mouse with hand movements or controlling games with hand movements and...
 The project is a **demo** version!
-# Quick start
+## Quick start
 - Install the prerequisite libraries:
   - ```Terminal
     pip install cvzone
@@ -53,5 +53,14 @@ The project is a **demo** version!
 - Dump the [Val.py](https://github.com/PAB-FA/Hand-commands/blob/main/DVal.py) file!:
 
   You need the Val file to run the program, it contains the initial values ​​that may need to be changed
-# Command : 
+## Command : 
+### Table of Contents
+1. [Clic](###Clic)
+2. [Dot](#Dot)
+3. [Grap](###Grap)
+
+### Clic
+### Dot
+### Grap
+
 
